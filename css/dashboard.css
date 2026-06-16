@@ -1,0 +1,339 @@
+/* =========================================
+   DASHBOARD LAYOUT CORE
+   ========================================= */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================================
+   SIDEBAR & NAVIGATION FIX
+   ========================================= */
+.sidebar {
+    width: 260px;
+    background: white;
+    padding: 30px;
+    border-right: 1px solid #e5e7eb;
+    /* PERBAIKAN: Jadikan sidebar flex container penuh */
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+    position: sticky;
+    top: 0;
+    overflow-y: auto; /* Agar aman jika layar sangat pendek */
+}
+
+.sidebar .logo {
+    margin-bottom: 20px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    /* PERBAIKAN: Biarkan nav mengisi sisa ruang yang ada */
+    flex: 1; 
+}
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #334155;
+    padding: 12px;
+    border-radius: 12px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #2563EB;
+    color: white;
+}
+
+/* Kunci utama agar tombol logout menempel sempurna di bawah */
+.sidebar nav a.logout-btn {
+    margin-top: auto;
+    color: #EF4444;
+}
+
+.sidebar nav a.logout-btn:hover {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+/* =========================================
+   MAIN CONTENT AREA
+   ========================================= */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background: #F8FAFC;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background: #2563EB;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(37,99,235,0.2);
+}
+
+/* =========================================
+   GRID SYSTEMS & CARDS
+   ========================================= */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.kpi-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #1E293B;
+}
+
+.quick-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* =========================================
+   PROGRESS BARS
+   ========================================= */
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 20px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%; /* Default ke 0, diisi JS */
+    height: 100%;
+    background: #2563EB;
+    transition: width 0.8s ease-in-out;
+}
+
+/* =========================================
+   TASKS & ACTIVITY
+   ========================================= */
+.task-card {
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.task-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.course-icon { font-size: 24px; }
+.course-name { font-size: 14px; font-weight: 600; opacity: 0.8; }
+.task-title { font-size: 20px; margin-bottom: 10px; }
+.task-deadline { font-size: 14px; margin-bottom: 15px; color: #475569; }
+
+.task-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#quickInsight {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #334155;
+}
+
+#recentActivity {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activity-item {
+    padding: 12px 15px;
+    background: #F8FAFC;
+    border-radius: 12px;
+    font-weight: 500;
+    color: #334155;
+    border-left: 4px solid #2563EB;
+}
+
+#upcomingTasks {
+    padding-left: 20px;
+    line-height: 2;
+    color: #475569;
+}
+
+.kpi-card h2 {
+    color: #2563EB;
+    font-size: 32px;
+    margin-top: 5px;
+}
+
+/* =========================================
+   GPA RING
+   ========================================= */
+.gpa-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gpa-ring {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(#2563EB 0deg, #60A5FA 280deg, #E2E8F0 280deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.gpa-inner {
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gpa-inner h2 { margin: 0; font-size: 24px; color: #1E293B; }
+.gpa-inner span { font-size: 12px; color: #64748B; }
+
+/* =========================================
+   SPECIAL CARDS
+   ========================================= */
+.focus-card {
+    background: linear-gradient(135deg, #2563EB, #60A5FA);
+    color: white;
+}
+.focus-card h3 { color: white; }
+.focus-card p { color: rgba(255,255,255,0.9); margin-bottom: 8px; }
+
+.badge-card {
+    background: linear-gradient(135deg, #F59E0B, #FCD34D);
+    color: #111827;
+}
+.badge-card h3 { color: #111827; }
+
+.badge-box {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 15px;
+}
+
+.card { backdrop-filter: blur(12px); }
+
+/* =========================================
+   MOBILE MENU & RESPONSIVE
+   ========================================= */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    border: none;
+    background: #2563EB;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(37,99,235,0.3);
+}
+
+@media(max-width: 992px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .quick-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(max-width: 768px) {
+    .mobile-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .sidebar {
+        position: fixed;
+        left: -280px;
+        top: 0;
+        height: 100vh;
+        z-index: 999;
+        transition: 0.4s;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .sidebar.active { left: 0; }
+    
+    .main-content { padding: 90px 20px 20px; }
+    .kpi-grid { grid-template-columns: 1fr; }
+    .quick-stats { grid-template-columns: 1fr; }
+    .topbar { flex-direction: column; align-items: flex-start; gap: 15px; }
+}

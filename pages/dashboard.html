@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ACADEXA</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>ACADEXA</span>
+        </div>
+        <nav>
+            <a class="active" href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+            <a href="planner.html"><i class="fa-solid fa-list-check"></i> Planner</a>
+            <a href="analytics.html"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+            <a href="insights.html"><i class="fa-solid fa-robot"></i> Insights</a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+            <a href="#" onclick="handleLogout(event)" class="logout-btn" style="color: #EF4444; margin-top: 20px;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <h2 id="welcomeName">Welcome Back 👋</h2>
+                <p id="welcomeInfo">Loading Profile...</p>
+            </div>
+            <div class="avatar" id="avatarInitial">AR</div>
+        </header>
+
+        <section class="kpi-grid">
+            <div class="kpi-card gpa-card">
+                <div class="gpa-ring">
+                    <div class="gpa-inner">
+                        <h2 id="gpaValue">0.00</h2>
+                        <span>/4.00</span>
+                    </div>
+                </div>
+                <p>Current GPA</p>
+            </div>
+            <div class="kpi-card">
+                <p>Semester</p>
+                <h2 id="semesterValue">0</h2>
+            </div>
+            <div class="kpi-card">
+                <p>Active Tasks</p>
+                <h2 id="activeTasks">0</h2>
+            </div>
+            <div class="kpi-card">
+                <p>Productivity</p>
+                <h2 id="productivityValue">0%</h2>
+            </div>
+        </section>
+
+        <section class="dashboard-grid">
+            <div class="card focus-card">
+                <h3>🎯 Today's Focus</h3>
+                <div id="todayFocus">Loading...</div>
+            </div>
+            <div class="card badge-card">
+                <h3>🏆 Academic Badge</h3>
+                <div id="academicBadge">Loading...</div>
+            </div>
+        </section>
+
+        <section class="dashboard-grid">
+            <div class="card">
+                <h3>Academic Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="semesterProgressFill"></div>
+                </div>
+                <p id="semesterProgressText">Loading...</p>
+            </div>
+            <div class="card">
+                <h3>Upcoming Tasks</h3>
+                <ul id="upcomingTasks">
+                    <li>Loading...</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="dashboard-grid">
+            <div class="card">
+                <h3>Quick Insight</h3>
+                <div id="quickInsight">Loading...</div>
+            </div>
+            <div class="card">
+                <h3>Recent Activity</h3>
+                <div id="recentActivity">Loading...</div>
+            </div>
+        </section>
+
+        <section class="quick-stats">
+            <div class="card">
+                <h3>Total Tasks</h3>
+                <h2 id="totalTasks">0</h2>
+            </div>
+            <div class="card">
+                <h3>Completed Tasks</h3>
+                <h2 id="completedTasks">0</h2>
+            </div>
+            <div class="card">
+                <h3>Pending Tasks</h3>
+                <h2 id="pendingTasks">0</h2>
+            </div>
+            <div class="card">
+                <h3>Academic Health</h3>
+                <h2 id="academicHealth">🟢</h2>
+            </div>
+        </section>
+    </main>
+</div>
+
+<button id="menuToggle" class="mobile-menu">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+<script src="../js/auth.js"></script>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

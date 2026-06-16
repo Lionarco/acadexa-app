@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ACADEXA</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #F8FAFC;
+            padding: 20px;
+        }
+        .auth-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+        .auth-card .logo {
+            justify-content: center;
+            margin-bottom: 24px;
+            color: #2563EB;
+        }
+        .auth-card h2 { margin-bottom: 8px; font-weight: 700; }
+        .auth-card p { color: #64748B; margin-bottom: 24px; font-size: 14px; }
+        .input-group { text-align: left; margin-bottom: 16px; }
+        .input-group label { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 600; }
+        .input-group input {
+            width: 100%; padding: 12px 16px; border: 1px solid #CBD5E1;
+            border-radius: 12px; outline: none; font-size: 15px; transition: 0.3s;
+        }
+        .input-group input:focus { border-color: #2563EB; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+        .auth-btn { width: 100%; margin-top: 12px; padding: 14px; }
+        .divider { display: flex; align-items: center; text-align: center; color: #94A3B8; margin: 20px 0; font-size: 12px; }
+        .divider::before, .divider::after { content: ''; flex: 1; border-bottom: 1px solid #E2E8F0; }
+        .divider:not(:empty)::before { margin-right: .5em; }
+        .divider:not(:empty)::after { margin-left: .5em; }
+        .social-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; padding: 12px; border: 1px solid #E2E8F0; background: white;
+            border-radius: 12px; cursor: pointer; font-weight: 500; margin-bottom: 10px; transition: 0.3s;
+        }
+        .social-btn:hover { background: #F8FAFC; }
+    </style>
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>ACADEXA</span>
+        </div>
+        <h2>Welcome Back!</h2>
+        <p>Login to continue to your dashboard</p>
+
+        <form id="loginForm" onsubmit="event.preventDefault(); handleLogin();">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="loginEmail" placeholder="youremail@example.com" required>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="loginPassword" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-primary auth-btn">Login</button>
+        </form>
+
+        <div class="divider">or continue with</div>
+
+        <button class="social-btn"><img src="https://docs.microsoft.com/en-us/azure/active-directory/develop/media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_16.png" alt="MS"> Continue with Microsoft</button>
+
+        <p style="margin-top: 24px; margin-bottom: 0;"> Don't have an account? <a href="register.html" style="color: #2563EB; text-decoration: none; font-weight: 600;">Register</a></p>
+    </div>
+</div>
+
+<script src="../js/auth.js"></script>
+</body>
+</html>

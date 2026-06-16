@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - ACADEXA</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/analytics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>ACADEXA</span>
+        </div>
+        <nav>
+            <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+            <a href="planner.html"><i class="fa-solid fa-list-check"></i> Planner</a>
+            <a class="active" href="analytics.html"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+            <a href="insights.html"><i class="fa-solid fa-lightbulb"></i> Insights</a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+            <a href="#" onclick="handleLogout(event)" class="logout-btn" style="color: #EF4444; margin-top: 20px;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="analytics-header">
+            <h1>📊 Academic Analytics</h1>
+            <p>Monitor your academic performance and productivity.</p>
+        </div>
+
+        <div class="analytics-stats">
+            <div class="analytics-card">
+                <h3>Productivity Score</h3>
+                <h1 id="productivityScore">0%</h1>
+            </div>
+            <div class="analytics-card">
+                <h3>Total Tasks</h3>
+                <h1 id="totalTasks">0</h1>
+            </div>
+            <div class="analytics-card">
+                <h3>Completed Tasks</h3>
+                <h1 id="completedTasks">0</h1>
+            </div>
+            <div class="analytics-card">
+                <h3>Pending Tasks</h3>
+                <h1 id="pendingTasks">0</h1>
+            </div>
+        </div>
+
+        <div class="analytics-grid">
+            <div class="chart-card">
+                <h2>Task Completion</h2>
+                <div class="progress-container">
+                    <div class="progress-row">
+                        <span>Completed</span>
+                        <div class="bar">
+                            <div id="completedBar" class="completed-bar"></div>
+                        </div>
+                    </div>
+                    <div class="progress-row">
+                        <span>Pending</span>
+                        <div class="bar">
+                            <div id="pendingBar" class="pending-bar"></div>
+                        </div>
+                    </div>
+                    <div class="progress-row">
+                        <span>In Progress</span>
+                        <div class="bar">
+                            <div id="progressBar" class="progress-bar-custom"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h2>Performance Insight</h2>
+                <div id="performanceInsight">Excellent Progress 🚀</div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h2>📚 Course Distribution</h2>
+            <div id="courseDistribution"></div>
+        </div>
+
+        <div class="card">
+            <h3>Academic Report</h3>
+            <p>Download laporan akademik dalam format PDF</p>
+            <br>
+            <button class="btn-primary" onclick="downloadReport()"><i class="fa-solid fa-file-pdf"></i> Download Report</button>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    </main>
+</div>
+
+<script src="../js/auth.js"></script>
+<script src="../js/analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - ACADEXA</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: #1E293B; font-size: 14px; }
+        .form-group span { display: block; font-size: 12px; color: #64748B; margin-bottom: 8px; line-height: 1.4; }
+        .form-group input { width: 100%; padding: 12px 16px; border: 2px solid #E2E8F0; border-radius: 12px; outline: none; font-size: 15px; transition: 0.3s; }
+        .form-group input:focus { border-color: #2563EB; box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        .summary-box { transition: 0.3s; }
+        .summary-box:hover { transform: translateY(-5px); }
+        .summary-box.semester-box { border-top: 6px solid #2563EB; background: #EFF6FF; }
+        .summary-box.gpa-box { border-top: 6px solid #22C55E; background: #ECFDF5; }
+        .summary-box.target-box { border-top: 6px solid #F59E0B; background: #FFFBEB; }
+        
+        .logout-btn:hover { background: #FEE2E2; color: #DC2626 !important; }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>ACADEXA</span>
+        </div>
+        <nav>
+            <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+            <a href="planner.html"><i class="fa-solid fa-list-check"></i> Planner</a>
+            <a href="analytics.html"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+            <a href="insights.html"><i class="fa-solid fa-robot"></i> Insights</a>
+            <a class="active" href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+            <a href="#" onclick="handleLogout(event)" class="logout-btn" style="color: #EF4444; margin-top: 20px;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <h1>👨‍🎓 Student Profile</h1>
+        <p>Manage your academic information.</p>
+        <br>
+        
+        <div class="profile-card" style="background: linear-gradient(135deg, #2563EB, #60A5FA); color: white; padding: 35px 20px;">
+            <div class="avatar" style="background: rgba(255, 255, 255, 0.2); color: white; margin-bottom: 20px;">
+                <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <h2 id="displayName" style="font-weight: 700; font-size: 26px;">Loading...</h2>
+            <p id="displayMajor" style="opacity: 0.9; font-size: 16px; margin-top: 4px;">Loading...</p>
+            <p id="displayEmail" style="opacity: 0.7; font-size: 14px; margin-top: 6px;"><i class="fa-solid fa-envelope"></i> Loading Email...</p>
+        </div>
+        <br>
+
+        <div class="card">
+            <h2>Edit Profile Details</h2>
+            <br>
+            <form id="profileForm" onsubmit="event.preventDefault(); saveProfile();">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <span>Masukkan nama lengkap Anda yang akan ditampilkan pada sapaan utama dashboard dan laporan PDF.</span>
+                    <input id="name" type="text" placeholder="Full Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentId">Nomor Induk Mahasiswa (NIM)</label>
+                    <span>Isi dengan nomor identitas mahasiswa resmi yang diterbitkan oleh universitas Anda.</span>
+                    <input id="studentId" type="text" placeholder="Student ID" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="major">Program Studi / Jurusan</label>
+                    <span>Tuliskan nama jurusan atau program studi aktif yang sedang Anda tempuh saat ini.</span>
+                    <input id="major" type="text" placeholder="Major" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="campusEmail">Email Kampus (Official Email)</label>
+                    <span>Alamat surat elektronik resmi institusi. Contoh: nama@mahasiswa.ac.id</span>
+                    <input id="campusEmail" type="email" placeholder="student@university.ac.id" required>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="semester">Semester Aktif</label>
+                        <span>Semester berjalannya studi Anda sekarang (1-14).</span>
+                        <input id="semester" type="number" placeholder="Semester" min="1" max="14" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentGPA">IPK Sekarang (Current GPA)</label>
+                        <span>Nilai Indeks Prestasi Kumulatif terakhir Anda skala 4.00.</span>
+                        <input id="currentGPA" type="number" step="0.01" placeholder="Current GPA" min="0" max="4" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="targetGPA">Target IPK Kelulusan</label>
+                    <span>Target capaian nilai kumulatif ideal yang ingin Anda kejar atau pertahankan hingga lulus.</span>
+                    <input id="targetGPA" type="number" step="0.01" placeholder="Target GPA" min="0" max="4" required>
+                </div>
+
+                <button class="btn-primary" type="submit" style="width: 100%; padding: 14px; font-size: 16px; font-weight: 600;">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Profile
+                </button>
+            </form>
+        </div>
+        <br>
+
+        <div class="academic-summary">
+            <div class="summary-box semester-box">
+                <h3 style="color: #475569; font-size: 15px;">Semester</h3>
+                <h1 id="semesterDisplay" style="color: #2563EB; font-size: 36px; margin-top: 5px;">-</h1>
+            </div>
+            <div class="summary-box gpa-box">
+                <h3 style="color: #475569; font-size: 15px;">Current GPA</h3>
+                <h1 id="currentGPADisplay" style="color: #166534; font-size: 36px; margin-top: 5px;">-</h1>
+            </div>
+            <div class="summary-box target-box">
+                <h3 style="color: #475569; font-size: 15px;">Target GPA</h3>
+                <h1 id="targetGPADisplay" style="color: #92400E; font-size: 36px; margin-top: 5px;">-</h1>
+            </div>
+        </div>
+    </main>
+
+    <div class="card reset-card">
+        <h3>Demo Management</h3>
+        <p>Reset seluruh data ACADEXA kembali ke kondisi awal demo.</p>
+        <br>
+        <button class="reset-btn" onclick="resetDemoData()">
+            <i class="fa-solid fa-rotate-left"></i> Reset Demo Data
+        </button>
+    </div>
+</div>
+
+<script src="../js/auth.js"></script>
+<script src="../js/profile.js"></script>
+</body>
+</html>

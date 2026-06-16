@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner - ACADEXA</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/planner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>ACADEXA</span>
+        </div>
+        <nav>
+            <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+            <a class="active" href="planner.html"><i class="fa-solid fa-list-check"></i> Planner</a>
+            <a href="analytics.html"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+            <a href="insights.html"><i class="fa-solid fa-lightbulb"></i> Insights</a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+            <a href="#" onclick="handleLogout(event)" class="logout-btn" style="color: #EF4444; margin-top: 20px;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="planner-header">
+            <div>
+                <h1>📚 Task Planner</h1>
+                <p>Manage assignments, projects and deadlines in one place.</p>
+            </div>
+        </div>
+
+        <div class="planner-stats">
+            <div class="stat-box">
+                <h2 id="totalTasks">0</h2>
+                <p>Total Tasks</p>
+            </div>
+            <div class="stat-box">
+                <h2 id="completedTasks">0</h2>
+                <p>Completed</p>
+            </div>
+            <div class="stat-box">
+                <h2 id="pendingTasks">0</h2>
+                <p>Pending</p>
+            </div>
+            <div class="stat-box">
+                <h2 id="productivityScore">0%</h2>
+                <p>Productivity</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Add New Task</h2>
+            <br>
+            <form id="taskForm" onsubmit="event.preventDefault(); addTask();">
+                <input id="title" type="text" placeholder="Task Title" required>
+                <br><br>
+                <input id="course" type="text" placeholder="Course Name" required>
+                <br><br>
+                <select id="priority">
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+                <br><br>
+                <input id="deadline" type="date">
+                <br><br>
+                <button class="btn-primary" type="submit">Add Task</button>
+            </form>
+        </div>
+        <br>
+        <input type="text" id="searchTask" placeholder="🔍 Search task..." onkeyup="renderTasks()">
+        <br><br>
+        <div id="taskList"></div>
+    </main>
+</div>
+
+<script src="../js/auth.js"></script>
+<script src="../js/planner.js"></script>
+</body>
+</html>
