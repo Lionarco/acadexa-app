@@ -23,6 +23,20 @@
         .summary-box.target-box { border-top: 6px solid #F59E0B; background: #FFFBEB; }
         
         .logout-btn:hover { background: #FEE2E2; color: #DC2626 !important; }
+
+        /* Desain Baru Zona Reset yang Ringkas */
+        .danger-zone {
+            margin-top: 40px;
+            padding: 20px 25px;
+            border: 1px dashed #EF4444;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #FEF2F2;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
     </style>
 </head>
 <body>
@@ -127,17 +141,25 @@
                 <h1 id="targetGPADisplay" style="color: #92400E; font-size: 36px; margin-top: 5px;">-</h1>
             </div>
         </div>
-    </main>
 
-    <div class="card reset-card">
-        <h3>Demo Management</h3>
-        <p>Reset seluruh data ACADEXA kembali ke kondisi awal demo.</p>
-        <br>
-        <button class="reset-btn" onclick="resetDemoData()">
-            <i class="fa-solid fa-rotate-left"></i> Reset Demo Data
-        </button>
-    </div>
+        <!-- DESAIN BARU: Area Reset Demo yang Estetik & Lega -->
+        <div class="danger-zone">
+            <div>
+                <h4 style="color: #991B1B; margin-bottom: 5px; font-size: 16px;">System Management</h4>
+                <p style="font-size: 13px; color: #DC2626; margin: 0;">Reset seluruh data profil & tugas ke mode simulasi awal.</p>
+            </div>
+            <button class="reset-btn" onclick="resetDemoData()" style="padding: 10px 18px; font-size: 14px; border-radius: 10px; flex-shrink: 0;">
+                <i class="fa-solid fa-rotate-left"></i> Reset Demo
+            </button>
+        </div>
+
+    </main>
 </div>
+
+<!-- TOMBOL MENU MOBILE -->
+<button id="menuToggle" class="mobile-menu">
+    <i class="fa-solid fa-bars"></i>
+</button>
 
 <script src="../js/auth.js"></script>
 <script src="../js/profile.js"></script>

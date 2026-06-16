@@ -75,3 +75,15 @@ function handleLogout(event) {
         window.location.href = "login.html";
     }
 }
+
+// GLOBAL MOBILE MENU TOGGLE
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.getElementById("menuToggle");
+    const sidebar = document.querySelector(".sidebar");
+    
+    if (menuBtn && sidebar) {
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+        });
+    }
+});
